@@ -113,5 +113,9 @@ class Person {
         System.out.println("데미지: " + iDamage);
         System.out.println("스킬 : " + sSkillName1 +"("+ iSkillDamge1+")");
         //System.out.println("데미지: " + iDamage);
+
+
+
+        //ㅁㄴㅇㄹㄴㅁㅇㄹㄴㅇㄹㄴㄹ연습
     }
 }
