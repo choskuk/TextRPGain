@@ -1,11 +1,16 @@
 //import java.io.IOException;
-import java.io.*;
+
 import java.util.*;
 //import java.io.FileOutputStream;
 //import java.io.OutputStream;
 
 class Monster
 {
+
+
+
+    int abcex;
+
     private String sMonsterName;
     private int iMonsterHP;
     private int iMonsterDamage;
@@ -33,7 +38,7 @@ class Monster
     {
 
 
-        while(this.iSelect<6 || this.iSelect>=0)
+        while(true)//this.iSelect<6 || this.iSelect>=0)
         {
             System.out.println("던전을 선택하세요 : 1. 초급   2. 중급   3. 고급 4. 내정보  5. 상점   6. 저장  7. 불러오기  0. 끝내기");
             @SuppressWarnings("resource")
@@ -59,6 +64,8 @@ class Monster
                 Field(person);
                 break;
             }
+
+
             else if(this.iSelect == 2)
             {
                 System.out.println("중급 던전 입니다");
@@ -121,11 +128,11 @@ class Monster
     void Field(Person person)
     {
 
-        int iSelect = 10;
+        int iSelect = 0;
 
 
 
-        while(0<=iSelect || iSelect <2 || person.iHP>0 || iMonsterHP >0)
+        while(0<=iSelect && iSelect <2 || person.iHP>0 || iMonsterHP >0)
         {
             if(person.iHP <=0)
             {
@@ -136,6 +143,7 @@ class Monster
             }
             if(iMonsterHP <= 0)
             {
+                int tmp = 0;
                 System.out.println("몬스터 사망");
                 System.out.println("경험치가 " + iEXP + " 올랐습니다.");
                 iMonsterHP = 0;
@@ -143,10 +151,12 @@ class Monster
                 person.iGold += iGold;
                 if(person.iEXP >= 100) {
                     person.iLevel +=1;
-                    person.iEXP = 0;
+                    tmp = person.iEXP - 100;
+                    person.iEXP = tmp;
                     person.iDamage += person.LevleupDamage;
                     person.iMaxHP += person.LevelupHP;
                     person.iHP = person.iMaxHP;
+
 
                 }
                 DungeonSelect(person);
@@ -172,11 +182,14 @@ class Monster
 
                 if(iSel == 1)
                 {
+
+                    //person.iMaxHP = 0;
                     person.iHP -= iMonsterDamage;
                     iMonsterHP -= person.iDamage;
                     if(iMonsterHP < 0)
                         iMonsterHP = 0;
                     person.showData();
+                    System.out.println("--------------------------------");
                     System.out.println("이름 : " + sMonsterName);
                     System.out.println("H.P : " + iMonsterHP);
                     //System.out.println("데미지: " + iMonsterDamage);
@@ -190,10 +203,11 @@ class Monster
                     if(iSkillSelect == 1)
                     {
                         person.iHP -= iMonsterDamage;
-                        iMonsterHP -= person.iSkill1;
+                        iMonsterHP -= person.iSkillDamge1;
                         if(iMonsterHP < 0)
                             iMonsterHP = 0;
                         person.showData();
+                        System.out.println("--------------------------------");
                         System.out.println("이름 : " + sMonsterName);
                         System.out.println("H.P : " + iMonsterHP);
 
