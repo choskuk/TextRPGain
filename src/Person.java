@@ -1,5 +1,5 @@
 //import java.io.IOException;
-import java.io.*;
+//import java.io.*;
 import java.util.*;
 //import java.io.FileOutputStream;
 //import java.io.OutputStream;
@@ -22,24 +22,16 @@ class Person {
     String sSkillName1;
     String sSkillName2;
     String sSkillName3;
-    int iSkill1;
-    int iSkill2;
-    int iSkill3;
+    int iSkillDamge1;
+    int iSkillDamge2;
+    int iSkillDamge3;
 
     public Person()
     {
-        sName = "";
-        iJobName = "";
-        iJob = 0;
-        iEXP = 0;
-        iLevel = 1;
-        iMaxHP = 0;
-        iHP = iMaxHP;
-        iGold =0;
-        LevelupHP = 0;
-        iSkill1 = 0;
-        iSkill2 = 0;
-        iSkill3 = 0;
+
+       NameSelect();
+       JobSelect();
+       showData();
 
     }
 
@@ -55,16 +47,17 @@ class Person {
 
  //   @SuppressWarnings("resource")
     void JobSelect()  {
+        System.out.println("직업 선택 : 1. 전사  2. 마!법사  3. 도적");
+        Scanner iSelect = new Scanner(System.in);
+        iJob = iSelect.nextInt();
 
 
+        while(iJob <4 && iJob >0) {   //iJob ==1 || iJob ==2 || iJob ==3
 
-        while(iJob <4 || iJob >0) {   //iJob ==1 || iJob ==2 || iJob ==3
-            System.out.println("직업 선택 : 1. 전사  2. 마!법사  3. 도적");
-            Scanner iSelect = new Scanner(System.in);
-            iJob = iSelect.nextInt();
 
             if(iJob == 1)
             {
+                iLevel = 1;
                 iJobName = "전사";
                 iMaxHP = 100;
                 iHP = iMaxHP;
@@ -72,11 +65,14 @@ class Person {
                 LevleupDamage = 2;
                 LevelupHP = 100;
                 sSkillName1 = "파워슬래시";
-                iSkill1 = 4;
+                iSkillDamge1 = 4;
+
+
                 break;
             }
             else if(iJob == 2)
             {
+                iLevel = 1;
                 iJobName = "마!법사";
                 iMaxHP = 50;
                 iHP = iMaxHP;
@@ -87,6 +83,7 @@ class Person {
             }
             else if(iJob == 3)
             {
+                iLevel = 1;
                 iJobName = "도적";
                 iMaxHP = 70;
                 iHP = iMaxHP;
@@ -114,7 +111,7 @@ class Person {
         System.out.println("EXP : " + iEXP);
         System.out.println("Gold: " + iGold);
         System.out.println("데미지: " + iDamage);
-        System.out.println("스킬 : " + sSkillName1 + iSkill1);
+        System.out.println("스킬 : " + sSkillName1 +"("+ iSkillDamge1+")");
         //System.out.println("데미지: " + iDamage);
     }
 }
