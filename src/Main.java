@@ -3,6 +3,8 @@ import java.io.*;
 import java.util.*;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.awt.event.KeyEvent;
+
 
 public class Main {
     public static void main(String[] args) //throws InterruptedException, IOException
@@ -17,9 +19,11 @@ public class Main {
 
         Person person = new Person();
       //  person.NameSelect();
-        person.NameSelect();
-        person.JobSelect();
-        person.showData();
+//        person.NameSelect();
+//        person.JobSelect();
+//        person.showData();
+
+        KeyEvent.VK_UP;
 
 
         Monster monster = new Monster();
