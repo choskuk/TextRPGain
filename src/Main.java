@@ -23,7 +23,7 @@ public class Main {
 //        person.JobSelect();
 //        person.showData();
 
-        KeyEvent.VK_UP;
+      //  KeyEvent.VK_UP;
 
 
         Monster monster = new Monster();
